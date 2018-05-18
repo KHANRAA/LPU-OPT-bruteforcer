@@ -1,0 +1,2 @@
+URL = "http://10.10.0.1/24online/webpages/clientloginfilter.jsp?loginstatus=null&logoutstatus=null&message=null&liverequesttime=null&livemessage=null&url=null&isAccessDenied=null&fromlogout=true&sessionTimeout=null&ipaddress=null&clientLoginReq=false&username=null&formsubmiturlIP=null&alerttime=null&coupon=null&deviceType=COMPUTER&ajaxusername=null"
+LOGIN_URL = "http://10.10.0.1/24online/servlet/E24onlineHTTPClient"
