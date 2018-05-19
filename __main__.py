@@ -55,10 +55,19 @@ if __name__ == "__main__":
         params[each.attrs['name']] = each.attrs['value']
 
     params['username'] = 'opt10@lpu.com'
-    params['password'] = ''
+    params['password'] = '@exam#'
 
     response = session.post(LOGIN_URL, data=params, headers=get_header())
 
     select = "FRAMESET > FRAME"
-    status = response.html.find(select, first=False)[1].attrs['src']
-    status = find_between(status, 'message=', '&').replace('+', ' ').replace('%2F', ' & ')
+    result = response.html.find(select, first=False)[1].attrs['src']
+
+    status = find_between(result, 'loginstatus=', '&')
+    message = find_between(result, 'message=', '&').replace('+', ' ').replace('%2F', ' & ').replace('%2C', ', ')
+
+    if status == 'true':
+        print(message)
+        print('Username: ' + params['username'] + '; Password: ' + params['password'])
+    else:
+        if message == 'You are not allowed to logged in into multiple devices at same time, Disconnect your previous session before creating new session':
+            print('Username: ' + params['username'] + '; Password: ' + params['password'])
