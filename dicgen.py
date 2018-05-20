@@ -32,3 +32,6 @@ shuffle(words)
 
 for _ in range(len(words)):
     f.write(words[_] + '\n')
+
+#Close file or you'll be not be accepted in stackoverflow society
+f.close()
